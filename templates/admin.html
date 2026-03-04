@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin - Create Link</title>
+  <style>
+    body{font-family:system-ui;margin:16px;max-width:520px}
+    input,button{width:100%;padding:12px;font-size:16px;margin:8px 0}
+    button{font-weight:700}
+    .card{border:1px solid #ddd;border-radius:12px;padding:14px}
+  </style>
+</head>
+<body>
+  <h2>Create Payment Link</h2>
+  <div class="card">
+    <form method="post" action="/admin/create">
+      <label>Amount (AED)</label>
+      <input type="number" name="amount_aed" min="1" required placeholder="250" />
+      <label>Description</label>
+      <input type="text" name="description" required placeholder="Reservation Fee" />
+      <button type="submit">Generate Link</button>
+    </form>
+  </div>
+</body>
+</html>

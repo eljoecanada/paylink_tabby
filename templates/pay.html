@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pay</title>
+  <style>
+    body{font-family:system-ui;margin:16px;max-width:520px}
+    .card{border:1px solid #ddd;border-radius:12px;padding:14px}
+    button{width:100%;padding:12px;font-size:16px;font-weight:700;margin-top:12px}
+    .muted{color:#666}
+  </style>
+</head>
+<body>
+  <h2>Payment Request</h2>
+  <div class="card">
+    <div><b>{{ description }}</b></div>
+    <div style="font-size:28px;margin:8px 0;">{{ amount_aed }} AED</div>
+    <div class="muted">Status: {{ status }}</div>
+
+    {% if status != "PAID" %}
+    <form method="post" action="/p/{{ token }}/pay">
+      <button type="submit">Pay</button>
+    </form>
+    <p class="muted" style="margin-top:10px;">
+      You will be redirected to a secure checkout page (gateway) where Tabby/OTP happens.
+    </p>
+    {% else %}
+    <p><b>Paid ✅</b></p>
+    {% endif %}
+  </div>
+</body>
+</html>
